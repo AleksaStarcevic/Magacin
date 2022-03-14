@@ -49,7 +49,9 @@ public class Magacin implements MagacinInterfejs{
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
+		if(artikal != null) {
+			artikli.add(artikal);
+		}
 		
 	}
 
