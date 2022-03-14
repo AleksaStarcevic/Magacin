@@ -58,6 +58,9 @@ public class Magacin implements MagacinInterfejs {
 
 	@Override
 	public void izbrisiArtikal(Artikal artikal) {
+		if(artikal == null) {
+			throw new NullPointerException("Artikal ne sme biti null");
+		}
 		for (Artikal arti : artikli) {
 			if (arti.equals(artikal)) {
 				arti.setKol(arti.getKol() - 1);
@@ -68,6 +71,9 @@ public class Magacin implements MagacinInterfejs {
 
 	@Override
 	public Artikal pronadjiArtikal(int sifra) {
+		if(sifra < 0) {
+			throw new IllegalArgumentException("Sifra ne sme biti manja od 0");
+		}
 		for (Artikal artikal : artikli) {
 			if (artikal.getSifra() == sifra) {
 				return artikal;
