@@ -7,7 +7,7 @@ import java.util.Objects;
 import artikli.Artikal;
 import interfejs.MagacinInterfejs;
 
-public class Magacin implements MagacinInterfejs{
+public class Magacin implements MagacinInterfejs {
 	List<Artikal> artikli;
 
 	public Magacin(ArrayList<Artikal> artikli) {
@@ -19,7 +19,7 @@ public class Magacin implements MagacinInterfejs{
 	}
 
 	public void setArtikli(List<Artikal> artikli) {
-		if(artikli == null) {
+		if (artikli == null) {
 			throw new NullPointerException("Lista artikla ne sme biti null");
 		}
 		this.artikli = artikli;
@@ -49,23 +49,31 @@ public class Magacin implements MagacinInterfejs{
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-		if(artikal != null) {
+
+		if (artikal != null) {
 			artikli.add(artikal);
 		}
-		
+
 	}
 
 	@Override
 	public void izbrisiArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
-		
+		for (Artikal arti : artikli) {
+			if (arti.equals(artikal)) {
+				arti.setKol(arti.getKol() - 1);
+			}
+		}
+
 	}
 
 	@Override
 	public Artikal pronadjiArtikal(int sifra) {
-		// TODO Auto-generated method stub
-		return null;
+		for (Artikal artikal : artikli) {
+			if (artikal.getSifra() == sifra) {
+				return artikal;
+			}
+		}
+		return new Artikal();
 	}
-	
-	
+
 }
