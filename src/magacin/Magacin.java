@@ -18,6 +18,9 @@ public class Magacin {
 	}
 
 	public void setArtikli(List<Artikal> artikli) {
+		if(artikli == null) {
+			throw new NullPointerException("Lista artikla ne sme biti null");
+		}
 		this.artikli = artikli;
 	}
 

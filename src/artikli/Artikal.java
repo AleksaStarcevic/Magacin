@@ -17,6 +17,9 @@ public class Artikal {
 	}
 
 	public void setNaziv(String naziv) {
+		if(naziv == null || naziv.isEmpty()) {
+			throw new IllegalArgumentException("Naziv ne sme biti null ili prazan string");
+		}
 		this.naziv = naziv;
 	}
 
@@ -25,6 +28,9 @@ public class Artikal {
 	}
 
 	public void setOpis(String opis) {
+		if(opis == null || opis.isEmpty()) {
+			throw new IllegalArgumentException("Opis ne sme biti null ili prazan string");
+		}
 		this.opis = opis;
 	}
 
@@ -33,10 +39,16 @@ public class Artikal {
 	}
 
 	public void setKol(int kol) {
+		if(kol < 0) {
+			throw new IllegalArgumentException("Kolicina ne sme biti negativan broj");
+		}
 		this.kol = kol;
 	}
 
 	public void setSifra(int sifra) {
+		if(sifra < 0) {
+			throw new IllegalArgumentException("Sifra ne sme biti negativan broj");
+		}
 		this.sifra = sifra;
 	}
 
