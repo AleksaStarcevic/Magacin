@@ -49,20 +49,28 @@ public class Magacin implements MagacinInterfejs{
 
 	@Override
 	public void dodajArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
+		artikli.add(artikal);
 		
 	}
 
 	@Override
 	public void izbrisiArtikal(Artikal artikal) {
-		// TODO Auto-generated method stub
+		for (Artikal arti : artikli) {
+			if(arti.equals(artikal)) {
+				arti.setKol(arti.getKol()-1);
+			}
+		}
 		
 	}
 
 	@Override
 	public Artikal pronadjiArtikal(int sifra) {
-		// TODO Auto-generated method stub
-		return null;
+		for (Artikal artikal : artikli) {
+			if(artikal.getSifra() == sifra) {
+				return artikal;
+			}
+		}
+		return new Artikal();
 	}
 	
 	
